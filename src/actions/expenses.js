@@ -37,7 +37,6 @@ export const startRemoveExpense = (id = null) => {
     return (dispatch, getState) => {
         const uid = getState().auth.uid;
         const path = `users/${uid}/expenses/${id}`;
-        console.log(path);
         return database.ref(path).remove()
             .then(() => {
                 dispatch(removeExpense(id));
